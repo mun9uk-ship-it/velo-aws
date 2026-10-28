@@ -1,128 +1,246 @@
 <div align="center">
 
-# ✈️ Velo.AWS
+# Velo.AWS
 
-<h3>🌐 <a href="https://velo.aws.velosights.com" target="_blank">v e l o . a w s . v e l o s i g h t s . c o m</a></h3>
+### ⚡ Lightning-fast AWS cost estimation. No framework. No clutter.
 
-**A lightning-fast, framework-free AWS Pricing Calculator built for modern cloud architects.**
+[![Visit](https://img.shields.io/badge/🌐_WEBSITE-velo.aws.velosights.com-6C63FF?style=for-the-badge&labelColor=0B0F1A)](https://velo.aws.velosights.com/)
 
-[![Live Demo](https://img.shields.io/badge/🚀_Visit_Live_App-7C6FFF?style=for-the-badge&logo=googlechrome&logoColor=white)](https://velo.aws.velosights.com)
-<br>
-![Status](https://img.shields.io/badge/Status-Active-10B981?style=flat-square)
-![Version](https://img.shields.io/badge/Version-1.0.0-06B6D4?style=flat-square)
-![License](https://img.shields.io/badge/License-MIT-F59E0B?style=flat-square)
-![Deploy](https://img.shields.io/badge/Deploy-GitHub_Actions_to_Plesk-2088FF?style=flat-square&logo=github-actions&logoColor=white)
+<br/>
 
-*Built with HTML5, CSS3, Vanilla JS, and a PWA architecture.*
+![Status](https://img.shields.io/badge/status-live-2EA44F?style=flat-square&logo=statuspage&logoColor=white)
+![Version](https://img.shields.io/badge/version-1.0.0-6C63FF?style=flat-square)
+![License](https://img.shields.io/badge/license-MIT-blue?style=flat-square)
+[![Deploy](https://img.shields.io/github/actions/workflow/status/YOUR_GITHUB_USERNAME/YOUR_REPO_NAME/deploy.yml?branch=main&label=deploy&logo=githubactions&logoColor=white&style=flat-square)](https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPO_NAME/actions)
+![PWA](https://img.shields.io/badge/PWA-ready-5A0FC8?style=flat-square&logo=pwa&logoColor=white)
+![No Framework](https://img.shields.io/badge/framework-none-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
 
-<!-- BANNER IMAGE PLACEHOLDER -->
-<img src="https://via.placeholder.com/1200x450/0A0E1A/7C6FFF?text=Velo.AWS+%E2%80%94+Interactive+Dashboard" alt="Velo.AWS Hero Banner" width="100%" style="border-radius: 12px; margin-top: 20px;">
+<br/>
+
+[![🚀 Live Demo](https://img.shields.io/badge/🚀_Live_Demo-Open_Velo.AWS-6C63FF?style=for-the-badge&labelColor=1A1F2E)](https://velo.aws.velosights.com/)
+
+<br/>
+
+[📖 Story](#-the-story) •
+[🖼️ Demo](#️-demo) •
+[✨ Features](#-key-features) •
+[⌨️ Shortcuts](#️-keyboard-shortcuts) •
+[🏗️ Architecture](#️-architecture--cicd-workflow) •
+[🚀 Deploy](#-one-click-deployment-guide) •
+[🛠️ Local Dev](#️-local-development)
 
 </div>
 
 ---
-
-## 📖 The Story: Why Velo.AWS?
-
-**The Problem:** The official AWS Pricing Calculator is powerful but notoriously overwhelming. It’s cluttered, requires multiple clicks to configure simple services, lacks dark mode, and often forgets your session. For developers trying to do quick mental math on infrastructure costs, it’s a friction-filled experience.
-
-**The Solution:** Velo.AWS is a zero-dependency, single-page estimation tool designed for speed and clarity. It strips away the noise, offering a sleek three-column workspace, instant live calculations, and a brilliant "Smart Search" that understands natural language (e.g., typing *"security lock"* instantly finds ACM). It respects your preferences—supporting 4 languages (including full RTL Arabic support), multi-currency conversion, and offline PWA capabilities.
 
 > [!TIP]
-> **The Real Magic:** All calculations happen instantly on the client side. No server round-trips, no loading spinners, just pure, instant UX.
+> **In a hurry?** Open **[velo.aws.velosights.com](https://velo.aws.velosights.com/)**, type a service name, and watch the monthly estimate update instantly. No sign-up, no install.
 
 ---
 
-## 🖼️ Show, Don't Tell
+## 📖 The Story
 
-<div align="center">
-  <!-- DEMO GIF PLACEHOLDER -->
-  <img src="https://via.placeholder.com/800x450/1A1F2E/FFFFFF?text=Demo+GIF+Placeholder" alt="Demo GIF" width="100%" style="border-radius: 8px; border: 1px solid #2A2F3E;">
-</div>
+**The problem.** The official AWS pricing calculator is powerful, but it is also cluttered, slow to load, and heavy to navigate when all you want is a quick, ballpark answer. Every estimate means clicking through multiple screens and waiting for pages to refresh.
 
-*Watch how fast the app calculates. In this GIF, you'll see a user searching for "hosting", adding an EC2 instance and an S3 bucket, switching the region to Frankfurt, and instantly seeing the monthly total update without a single page reload.*
+**The solution.** **Velo.AWS** is a sleek, instant alternative. Pick your services, tweak a few numbers, and see live monthly and yearly costs immediately. It is completely static and framework-free, so it loads in a blink, works offline as a PWA, and speaks your language and your currency.
+
+> [!NOTE]
+> Velo.AWS is built for **quick, early-stage estimates**. For official quotes and billing, always verify with the official AWS Pricing Calculator.
+
+---
+
+## 🖼️ Demo
+
+![Demo](https://via.placeholder.com/800x450/1A1F2E/FFFFFF?text=Demo+GIF+Placeholder)
+
+<p align="center"><em>
+🎬 The demo GIF shows a full workflow: typing "SSL" in the search box and instantly seeing AWS ACM alongside its GCP and Azure equivalents, adding a few services, switching currency from USD to GBP, flipping the interface to Arabic with full RTL layout, and exporting a branded PDF with a QR code.
+</em></p>
+
+> [!TIP]
+> Record the GIF at **800×450** with a tool such as ScreenToGif, Kap, or LICEcap, and keep it under **5 MB** so the README loads fast.
 
 ---
 
 ## ✨ Key Features
 
 | Feature | Description |
-| :--- | :--- |
-| 🔍 **Smart Cross-Cloud Search** | Type natural terms like *"CDN"* or *"SSL"* and it will instantly surface the AWS service, along with its GCP and Azure equivalents. |
-| ⚡ **Instant Calculations** | Every keystroke triggers a recalculation. No "Calculate" button needed. |
-| 🌍 **Multi-Language & RTL** | Fully translated into English, Arabic, French, and German. The entire layout flips flawlessly for Arabic (RTL). |
-| 💱 **Multi-Currency** | Estimate in USD, GBP, or EUR. Prices are stored in USD and instantly converted on the fly. |
-| 🖨️ **Branded PDF Exports** | Generate a clean, black-and-white, print-optimized report containing a dynamically generated QR code linking to the shared estimate. |
-| 📱 **PWA & Offline Ready** | Install it as a native-like app on your desktop or mobile. It works completely offline once loaded. |
-| 🗂️ **State Sharing** | Encode your entire infrastructure estimate, selected language, and currency into a single shareable URL. |
+| :-- | :-- |
+| 🔍 **Smart Cross-Cloud Search** | Type a keyword like `SSL` and find AWS ACM, with GCP and Azure equivalents shown side by side. |
+| ⚡ **Instant Calculations** | Every change updates monthly and yearly costs in real time, with no page reloads. |
+| 🌍 **Multi-Language + RTL** | Multiple interface languages, including **full Arabic right-to-left support**. |
+| 💱 **Multi-Currency** | Switch between **USD 💵, GBP 💷, and EUR 💶** with converted prices. |
+| 📄 **Branded PDF Export** | One click to export a polished PDF report with your branding and a **QR code**. |
+| 📱 **PWA & Offline** | Installable on desktop and mobile, powered by a Service Worker. |
+| 🪶 **Zero Frameworks** | Pure HTML5, CSS3, and Vanilla JavaScript (ES2022 Modules). Tiny and fast. |
 
 ---
 
-## ⌨️ The Cheat Sheet
+## ⌨️ Keyboard Shortcuts
 
-Speed is everything. Velo.AWS comes with a robust set of keyboard shortcuts.
+Work faster without leaving the keyboard.
 
-| Shortcut | Action |
-| :--- | :--- |
-| <kbd>/</kbd> | Focus the Global Search Bar |
-| <kbd>Ctrl</kbd> + <kbd>[A-Z]</kbd> | Quickly add a specific service (e.g., <kbd>Ctrl</kbd> + <kbd>E</kbd> for EC2) |
-| <kbd>Ctrl</kbd> + <kbd>K</kbd> | Copy Share Link to clipboard |
-| <kbd>Ctrl</kbd> + <kbd>P</kbd> | Generate PDF / Print |
-| <kbd>?</kbd> | Open the Shortcuts Help Modal |
-| <kbd>Esc</kbd> | Close any open modal or blur search |
-| <kbd>R</kbd> | Reset the entire estimate |
+| Action | Shortcut |
+| :-- | :--: |
+| 🔍 Focus the search box | <kbd>Ctrl</kbd> + <kbd>K</kbd> |
+| 💾 Save the estimate | <kbd>Ctrl</kbd> + <kbd>S</kbd> |
+| 📄 Export to PDF | <kbd>Ctrl</kbd> + <kbd>E</kbd> |
+| 🔗 Copy share link | <kbd>Ctrl</kbd> + <kbd>L</kbd> |
+| ❓ Open help | <kbd>?</kbd> |
+| ❌ Clear search / close dialog | <kbd>Esc</kbd> |
+
+> [!IMPORTANT]
+> On macOS, use <kbd>⌘</kbd> instead of <kbd>Ctrl</kbd>. Update this table to match the exact shortcuts implemented in your app.
 
 ---
 
 ## 🏗️ Architecture & CI/CD Workflow
 
-Velo.AWS is completely static and framework-free. However, it features a modern, automated deployment pipeline. We don't use FTP clients; we use Git.
+Velo.AWS is **completely static and framework-free**, yet it ships through a modern, automated pipeline. We don't drag files around with FTP clients. We use **Git**.
+
+| 🟣 **1. Local** | 🟠 **2. GitHub** | 🟡 **3. Actions** | 🔵 **4. Plesk** | 🟢 **5. Live** |
+| :-: | :-: | :-: | :-: | :-: |
+| VS Code | Repo `main` | `deploy.yml` | Hosting | Your users |
 
 ```text
-+----------------+      git push      +-------------------+
-|  💻 Local VS   | -----------------> |  🐙 GitHub Repo   |
-|     Code       |                    |     (main)        |
-+----------------+                    +-------------------+
-                                               |
-                                               | triggers
-                                               v
-+----------------+    FTP Sync      +-------------------+
-|  ☁️ Plesk      | <---------------- |  ⚙️ GitHub Actions|
-|   Hosting      |                   |   (deploy.yml)    |
-+----------------+                   +-------------------+
-        |
-        | serves
-        v
-+----------------+
-|  🌐 Live User  |
-+----------------+
+┌──────────────────┐   git push   ┌────────────────────┐
+│  1  LOCAL        │ ───────────▶ │  2  GITHUB REPO    │
+│     VS Code      │              │     branch: main   │
+└──────────────────┘              └─────────┬──────────┘
+                                            │ triggers
+                                            ▼
+┌──────────────────┐   FTP sync   ┌────────────────────┐
+│  4  PLESK        │ ◀─────────── │  3  GITHUB ACTIONS │
+│     Hosting      │              │     deploy.yml     │
+└────────┬─────────┘              └────────────────────┘
+         │ serves
+         ▼
+┌──────────────────┐
+│  5  LIVE USERS   │
+│     Your users   │
+└──────────────────┘
 ```
-[!IMPORTANT]
-    The CI/CD pipeline requires exactly 4 GitHub Secrets (FTP_SERVER, FTP_USERNAME, FTP_PASSWORD, FTP_SERVER_DIR) to be configured in your repository settings to authorize the deployment to Plesk.
 
-🚀 One-Click Deployment Guide
+> [!NOTE]
+> The diagram is plain text on purpose: it loads instantly and never breaks due to GitHub's renderer.
 
-Deploying updates to production is as simple as making a commit. The GitHub Action handles the rest.
+---
 
-# Stage your changes
+## 🚀 One-Click Deployment Guide
+
+Deploying is just three Git commands. Push to `main` and GitHub Actions does the rest.
+
+**1️⃣ Stage your changes**
+
+```bash
 git add .
+```
 
-# Commit with a descriptive message
-git commit -m "feat: added new EC2 pricing logic"
+**2️⃣ Commit with a clear message**
 
-# Push to the main branch (This triggers the Plesk deployment automatically)
+```bash
+git commit -m "Describe your change here"
+```
+
+**3️⃣ Push to main and trigger the deployment**
+
+```bash
 git push origin main
+```
 
-# Stage your changes
-git add .
+> [!IMPORTANT]
+> Every push to `main` triggers the `deploy.yml` workflow, which syncs the site to Plesk over FTP. Watch progress in the **Actions** tab of your repository.
 
-# Commit with a descriptive message
-git commit -m "feat: added new EC2 pricing logic"
+---
 
-# Push to the main branch (This triggers the Plesk deployment automatically)
-git push origin main
+## 🛠️ Local Development
 
+No build step and no dependencies to install. Just serve the `public` folder:
 
+```bash
+npx serve public -l 3000
+```
 
+Then open **http://localhost:3000** in your browser.
 
+> [!TIP]
+> Service Workers only run on `localhost` or HTTPS, so testing the PWA and offline mode locally works out of the box.
 
+---
+
+## 🧰 Tech Stack
+
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript_ES2022-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![PWA](https://img.shields.io/badge/PWA-5A0FC8?style=for-the-badge&logo=pwa&logoColor=white)
+![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white)
+![Plesk](https://img.shields.io/badge/Plesk-52BBE6?style=for-the-badge&logo=plesk&logoColor=white)
+
+---
+
+## 🗺️ Roadmap
+
+- [x] Instant cost calculation
+- [x] Multi-currency (USD, GBP, EUR)
+- [x] Multi-language with Arabic RTL
+- [x] Branded PDF export with QR code
+- [x] PWA and offline support
+- [ ] More AWS services and instance types
+- [ ] Per-service regional pricing data
+- [ ] Side-by-side AWS vs GCP vs Azure cost comparison
+
+---
+
+## 🤝 Contributing
+
+Ideas, bug reports, and pull requests are welcome.
+
+1. 🍴 Fork the repository
+2. 🌿 Create a feature branch
+3. 💾 Commit your changes
+4. 🔁 Open a Pull Request
+
+---
+
+## 📜 License & Disclaimer
+
+This project is licensed under the **MIT License**. You are free to use, copy, modify, and distribute it, provided the license notice is included.
+
+> [!WARNING]
+> **Disclaimer:** Velo.AWS is an **independent project** and is **not affiliated with, endorsed by, or sponsored by Amazon Web Services (AWS), Google Cloud Platform (GCP), or Microsoft Azure**. All product names, logos, and brands are the property of their respective owners. Cost figures are **estimates only**. Always verify with the official pricing calculators before making financial decisions.
+
+---
+
+## ☕ Support & Author
+
+If Velo.AWS saved you time, consider buying me a coffee. ☕ **4 coffees a day let me build more free tools for you!** 💜
+
+<p align="center">
+
+[![Buy Me a Coffee](https://img.shields.io/badge/☕_Buy_Me_a_Coffee-Monzo-FF4F40?style=for-the-badge&logo=monzo&logoColor=white)](https://monzo.me/muneerahmed)
+
+**Monzo tag:** `@muneerahmed`
+
+</p>
+
+### 👤 Author
+
+**Muneer Ahmed**
+
+| | |
+| :-- | :-- |
+| 📧 **Email** | `your.email@example.com` |
+| 💼 **LinkedIn** | `https://www.linkedin.com/in/your-profile` |
+| 🆔 **ORCID** | `https://orcid.org/0000-0000-0000-0000` |
+| 🧪 **Zenodo** | `https://zenodo.org/your-profile` |
+
+---
+
+<div align="center">
+
+**Built with ❤️ by Muneer Ahmed · Powered by pure HTML, CSS & JavaScript**
+
+⭐ *If you like this project, give it a star!* ⭐
+
+</div>
