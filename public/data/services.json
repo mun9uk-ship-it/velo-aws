@@ -1,0 +1,55 @@
+{
+  "categories": [
+    {
+      "id": "compute",
+      "name": "Compute",
+      "services": [
+        { "id": "ec2",       "name": "EC2",         "icon": "🖥️", "desc": "Virtual servers" },
+        { "id": "lambda",    "name": "Lambda",      "icon": "λ",  "desc": "Serverless functions" },
+        { "id": "ecs",       "name": "ECS Fargate", "icon": "📦", "desc": "Container compute" },
+        { "id": "lightsail", "name": "Lightsail",   "icon": "🚀", "desc": "Simple VPS" }
+      ]
+    },
+    {
+      "id": "storage",
+      "name": "Storage",
+      "services": [
+        { "id": "s3",      "name": "S3",      "icon": "🪣", "desc": "Object storage" },
+        { "id": "ebs",     "name": "EBS",     "icon": "💾", "desc": "Block storage" },
+        { "id": "efs",     "name": "EFS",     "icon": "🗂️", "desc": "File system" },
+        { "id": "glacier", "name": "Glacier", "icon": "🧊", "desc": "Archive storage" }
+      ]
+    },
+    {
+      "id": "database",
+      "name": "Database",
+      "services": [
+        { "id": "rds",        "name": "RDS",         "icon": "🗄️", "desc": "Managed SQL" },
+        { "id": "dynamodb",   "name": "DynamoDB",    "icon": "⚡", "desc": "NoSQL" },
+        { "id": "aurora",     "name": "Aurora",      "icon": "🌌", "desc": "Managed Aurora" },
+        { "id": "elasticache","name": "ElastiCache", "icon": "🧠", "desc": "In-memory cache" }
+      ]
+    },
+    {
+      "id": "networking",
+      "name": "Networking",
+      "services": [
+        { "id": "cloudfront", "name": "CloudFront", "icon": "🌐", "desc": "CDN" },
+        { "id": "route53",    "name": "Route 53",   "icon": "🧭", "desc": "DNS" },
+        { "id": "elb",        "name": "Load Balancer","icon":"⚖️","desc": "ALB/NLB" }
+      ]
+    },
+    {
+      "id": "other",
+      "name": "Other",
+      "services": [
+        { "id": "cloudwatch","name": "CloudWatch", "icon": "📊", "desc": "Monitoring" },
+        { "id": "sns",       "name": "SNS",        "icon": "🔔", "desc": "Notifications" },
+        { "id": "sqs",       "name": "SQS",        "icon": "📬", "desc": "Queue" },
+        { "id": "cognito",   "name": "Cognito",    "icon": "🔐", "desc": "Auth" },
+        { "id": "apigateway","name": "API Gateway","icon": "🔌", "desc": "APIs" },
+        { "id": "acm",       "name": "ACM",        "icon": "🔒", "desc": "SSL/TLS Certificates" }
+      ]
+    }
+  ]
+}

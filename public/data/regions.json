@@ -1,0 +1,14 @@
+{
+  "regions": [
+    { "id": "us-east-1",      "name": "US East (N. Virginia)", "multiplier": 1.00 },
+    { "id": "us-west-2",      "name": "US West (Oregon)",      "multiplier": 1.00 },
+    { "id": "eu-west-1",      "name": "EU (Ireland)",          "multiplier": 1.08 },
+    { "id": "eu-central-1",   "name": "EU (Frankfurt)",        "multiplier": 1.12 },
+    { "id": "ap-south-1",     "name": "Asia Pacific (Mumbai)", "multiplier": 0.95 },
+    { "id": "ap-southeast-1", "name": "Asia Pacific (Singapore)","multiplier": 1.05 },
+    { "id": "ap-northeast-1", "name": "Asia Pacific (Tokyo)",  "multiplier": 1.15 },
+    { "id": "sa-east-1",      "name": "South America (São Paulo)","multiplier": 1.25 },
+    { "id": "me-south-1",     "name": "Middle East (Bahrain)", "multiplier": 1.10 },
+    { "id": "af-south-1",     "name": "Africa (Cape Town)",    "multiplier": 1.18 }
+  ]
+}

@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0A0E1A" />
+  <title>Velo.AWS — AWS Pricing Calculator</title>
+  <link rel="manifest" href="./manifest.json" />
+  <link rel="icon" href="./icons/icon-192.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body>
+  <a href="#workspace" class="skip-link" data-i18n="skip">Skip to content</a>
+
+  <!-- HEADER -->
+  <header class="header" role="banner">
+    <div class="header-inner">
+      <a href="#" class="logo" aria-label="Velo.AWS home">
+        <svg class="logo-mark" viewBox="0 0 32 32" aria-hidden="true">
+          <defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#7C6FFF"/><stop offset="1" stop-color="#06B6D4"/>
+          </linearGradient></defs>
+          <path d="M4 20 L16 6 L28 20 L22 20 L16 13 L10 20 Z" fill="url(#lg)"/>
+          <circle cx="16" cy="26" r="2" fill="#06B6D4"/>
+        </svg>
+        <span class="logo-text">Velo<span class="logo-dot">.AWS</span></span>
+      </a>
+
+      <!-- REAL SEARCH BAR -->
+      <div class="header-search">
+        <input id="globalSearch" type="search" placeholder="Search AWS services or terms (e.g., SSL, hosting)…  ( / )"
+          aria-label="Search services" autocomplete="off" />
+      </div>
+
+      <div class="header-actions">
+        <!-- Help/Shortcut Icon with Tooltip -->
+        <div class="tooltip-wrapper">
+          <button class="icon-btn" id="shortcutsBtn" aria-label="Keyboard shortcuts">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="4" width="20" height="16" rx="2" ry="2"></rect>
+              <path d="M6 8h.01M10 8h.01M14 8h.01M18 8h.01M8 12h.01M12 12h.01M16 12h.01M7 16h10"></path>
+            </svg>
+          </button>
+          <div class="tooltip-content">
+            Use keyboard shortcuts to navigate faster.<br>
+            Press <strong>Alt + [Key]</strong> to add services from the left menu.
+          </div>
+        </div>
+
+        <select id="langSelect" aria-label="Language" class="select-mini">
+          <option value="en">EN</option>
+          <option value="ar">AR</option>
+          <option value="fr">FR</option>
+          <option value="de">DE</option>
+        </select>
+        <select id="currencySelect" aria-label="Currency" class="select-mini">
+          <option value="USD">USD $</option>
+          <option value="GBP">GBP £</option>
+          <option value="EUR">EUR €</option>
+        </select>
+        <button type="button" class="btn btn-ghost" id="shareBtnHeader" title="Share Link (Ctrl/Cmd + K)">Share</button>
+        <button type="button" class="btn btn-primary" id="printBtnHeader" title="Print / PDF (Ctrl/Cmd + P)">Print</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE DRAWER TOGGLE -->
+  <button class="drawer-toggle" id="drawerToggle" aria-label="Toggle services">☰ <span data-i18n="services">Services</span></button>
+
+  <!-- MAIN GRID -->
+  <main class="layout" id="workspace">
+    <!-- LEFT SIDEBAR -->
+    <aside class="sidebar" id="sidebar" aria-label="Services">
+      <div class="sidebar-search">
+        <input id="sidebarSearch" type="search" placeholder="Filter services…" data-i18n-placeholder="filterPlaceholder" aria-label="Filter services"/>
+      </div>
+      <div id="categories" class="categories"><!-- injected --></div>
+    </aside>
+
+    <!-- MIDDLE WORKSPACE -->
+    <section class="workspace" aria-live="polite">
+      <div class="workspace-header">
+        <h1 class="page-title" data-i18n="title">AWS Cost Estimator</h1>
+        <p class="page-sub" data-i18n="subtitle">Pick services, configure them, and see live monthly costs.</p>
+      </div>
+      <div id="serviceCards" class="service-cards"><!-- injected --></div>
+      <div id="emptyState" class="empty-state">
+        <div class="empty-icon">📦</div>
+        <p data-i18n="empty">Add a service from the left to start estimating costs.</p>
+      </div>
+    </section>
+
+    <!-- RIGHT SUMMARY -->
+    <aside class="summary" id="summary" aria-label="Cost summary">
+      <div class="summary-inner">
+        <h2 class="summary-title" data-i18n="summary">Estimate</h2>
+
+        <div class="totals">
+          <div class="total-block">
+            <div class="total-label" data-i18n="monthly">Monthly</div>
+            <div class="total-value" id="monthlyTotal">$0.00</div>
+          </div>
+          <div class="total-block total-small">
+            <div class="total-label" data-i18n="yearly">Yearly</div>
+            <div class="total-value" id="yearlyTotal">$0.00</div>
+          </div>
+        </div>
+
+        <div class="vat-row">
+          <label class="switch">
+            <input type="checkbox" id="vatToggle" />
+            <span class="slider"></span>
+          </label>
+          <span data-i18n="vat">Add VAT (20%)</span>
+        </div>
+
+        <div class="breakdown">
+          <h3 class="section-title" data-i18n="breakdown">Cost breakdown</h3>
+          <ul id="breakdownList" class="breakdown-list"></ul>
+        </div>
+
+        <div class="disclaimer">
+          <strong>⚠️ <span data-i18n="disclaimerTitle">This is an ESTIMATE only.</span></strong>
+          <p data-i18n="disclaimer">Actual AWS costs may vary based on usage, region, discounts, and other factors. Always verify with the official AWS Pricing Calculator.</p>
+        </div>
+
+        <div class="rate-note" id="rateNote"></div>
+
+        <!-- Buy Me a Coffee Section -->
+        <div class="bmc-container">
+          
+          <div class="bmc-header">
+            <span class="bmc-icon">☕</span>
+            <strong data-i18n="bmcTitle">Buy me a coffee</strong>
+          </div>
+
+          <div class="bmc-body">
+            <!-- Link Button -->
+            <a href="https://monzo.me/muneerahmed?h=csYlen" target="_blank" rel="noopener noreferrer" class="bmc-btn">
+              <span data-i18n="bmcLinkText">Pay via Monzo Link</span>
+            </a>
+            
+            <!-- QR Code -->
+            <div class="bmc-qr">
+              <img src="./icons/monzo-qr.png" alt="Monzo Payment QR Code" />
+              <span data-i18n="bmcScan">Scan to pay with your phone</span>
+            </div>
+          </div>
+
+          <!-- Copyable Tag -->
+          <div class="monzo-tag" onclick="navigator.clipboard.writeText('@muneerahmed'); this.innerHTML='<span style=\'color:var(--success)\' data-i18n=\'bmcCopied\'>Copied!</span>'; setTimeout(() => this.innerHTML='<span data-i18n=\'bmcTag\'>Monzo Tag:</span> <strong>@muneerahmed</strong>', 2000);" title="Click to copy">
+            <span data-i18n="bmcTag">Monzo Tag:</span> <strong>@muneerahmed</strong>
+          </div>
+          
+          <div class="bmc-note" data-i18n="bmcNote">
+            No Monzo account needed. Apple Pay & Cards accepted.
+          </div>
+
+        </div>
+
+        <div class="summary-actions">
+          <button class="btn btn-danger w-full" id="resetBtn" data-i18n="reset">Reset All</button>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span>© <span id="year"></span> Velo.AWS</span>
+      <span class="footer-disc" data-i18n="disclaimerShort">Estimates only — verify with the official AWS Pricing Calculator.</span>
+    </div>
+  </footer>
+
+  <!-- MODALS & TOAST -->
+  <div class="modal" id="shortcutsModal" hidden>
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="shortcutsTitle">
+      <div class="modal-head">
+        <h3 id="shortcutsTitle" data-i18n="shortcutsTitle">Keyboard Shortcuts</h3>
+        <button class="icon-btn" data-close aria-label="Close">✕</button>
+      </div>
+      <table class="shortcuts-table">
+        <tbody>
+          <tr><td><kbd>/</kbd></td><td data-i18n="sc_search">Focus search</td></tr>
+          <tr><td><kbd>Esc</kbd></td><td data-i18n="sc_escape">Close modal / clear search</td></tr>
+          <tr><td><kbd>Ctrl/Cmd</kbd> + <kbd>P</kbd></td><td data-i18n="sc_print">Print / Save as PDF</td></tr>
+          <tr><td><kbd>Ctrl/Cmd</kbd> + <kbd>K</kbd></td><td data-i18n="sc_share">Share Link</td></tr>
+          <tr><td><kbd>Alt</kbd> + <kbd>A-Z</kbd></td><td>Add specific service</td></tr>
+          <tr><td><kbd>?</kbd></td><td data-i18n="sc_help">Show shortcuts help</td></tr>
+          <tr><td><kbd>R</kbd></td><td data-i18n="sc_reset">Reset estimate</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- HIDDEN PRINT CONTAINER -->
+  <div id="printContainer" class="print-container" style="display: none;"></div>
+
+  <script type="module" src="./js/app.js"></script>
+</body>
+</html>

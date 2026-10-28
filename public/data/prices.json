@@ -1,0 +1,26 @@
+{
+  "note": "All prices in USD. Compute services are priced per hour. Storage/Network are priced per GB.",
+  "services": {
+    "ec2":        { "base": 0.0104,  "unit": "per instance/hour", "fields": ["instances","hours"] },
+    "lambda":     { "base": 0.20,    "unit": "per 1M requests",   "fields": ["requests","gbSeconds"] },
+    "ecs":        { "base": 0.04048, "unit": "per vCPU/hour",     "fields": ["tasks","hours"] },
+    "lightsail":  { "base": 5.00,    "unit": "per instance/month","fields": ["instances"] },
+    "s3":         { "base": 0.023,   "unit": "per GB",            "fields": ["gb"] },
+    "ebs":        { "base": 0.08,    "unit": "per GB",            "fields": ["gb"] },
+    "efs":        { "base": 0.30,    "unit": "per GB",            "fields": ["gb"] },
+    "glacier":    { "base": 0.004,   "unit": "per GB",            "fields": ["gb"] },
+    "rds":        { "base": 0.0342,  "unit": "per instance/hour", "fields": ["instances","hours"] },
+    "dynamodb":   { "base": 0.00025, "unit": "per RCU/WCU/hour",  "fields": ["writes","reads"] },
+    "aurora":     { "base": 0.082,   "unit": "per instance/hour", "fields": ["instances","hours"] },
+    "elasticache":{ "base": 0.068,   "unit": "per node/hour",     "fields": ["nodes","hours"] },
+    "cloudfront": { "base": 0.085,   "unit": "per GB transfer",   "fields": ["gb"] },
+    "route53":    { "base": 0.50,    "unit": "per hosted zone",   "fields": ["zones"] },
+    "elb":        { "base": 0.0225,  "unit": "per LB/hour",       "fields": ["lbs","hours"] },
+    "cloudwatch": { "base": 0.30,    "unit": "per metric/month",  "fields": ["metrics"] },
+    "sns":        { "base": 0.50,    "unit": "per 1M notices",    "fields": ["notifications"] },
+    "sqs":        { "base": 0.40,    "unit": "per 1M requests",   "fields": ["requests"] },
+    "cognito":    { "base": 0.0055,  "unit": "per MAU",           "fields": ["mau"] },
+    "apigateway": { "base": 3.50,    "unit": "per 1M calls",      "fields": ["calls"] },
+    "acm":        { "base": 0.00,    "unit": "free public certs", "fields": ["certs"] }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "velo-aws",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Velo.AWS — AWS pricing calculator",
+  "type": "module",
+  "scripts": {
+    "dev": "npx serve public -l 3000",
+    "start": "npx serve public -l 3000",
+    "build": "node scripts/generate-version.js"
+  },
+  "engines": { "node": ">=20" }
+}
